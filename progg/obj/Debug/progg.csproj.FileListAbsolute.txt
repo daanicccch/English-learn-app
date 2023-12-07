@@ -1,0 +1,15 @@
+D:\c#\progg\progg\bin\Debug\progg.exe.config
+D:\c#\progg\progg\bin\Debug\progg.exe
+D:\c#\progg\progg\bin\Debug\progg.pdb
+D:\c#\progg\progg\obj\Debug\progg.csproj.AssemblyReference.cache
+D:\c#\progg\progg\obj\Debug\MainWindow.g.cs
+D:\c#\progg\progg\obj\Debug\App.g.cs
+D:\c#\progg\progg\obj\Debug\progg_MarkupCompile.cache
+D:\c#\progg\progg\obj\Debug\progg_MarkupCompile.lref
+D:\c#\progg\progg\obj\Debug\MainWindow.baml
+D:\c#\progg\progg\obj\Debug\progg.g.resources
+D:\c#\progg\progg\obj\Debug\progg.Properties.Resources.resources
+D:\c#\progg\progg\obj\Debug\progg.csproj.GenerateResource.cache
+D:\c#\progg\progg\obj\Debug\progg.csproj.CoreCompileInputs.cache
+D:\c#\progg\progg\obj\Debug\progg.exe
+D:\c#\progg\progg\obj\Debug\progg.pdb
