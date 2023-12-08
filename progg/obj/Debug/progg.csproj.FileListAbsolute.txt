@@ -13,3 +13,6 @@ D:\c#\progg\progg\obj\Debug\progg.csproj.GenerateResource.cache
 D:\c#\progg\progg\obj\Debug\progg.csproj.CoreCompileInputs.cache
 D:\c#\progg\progg\obj\Debug\progg.exe
 D:\c#\progg\progg\obj\Debug\progg.pdb
+D:\c#\progg\progg\obj\Debug\Styles.baml
+D:\c#\progg\progg\obj\Debug\HomeUserControl.g.cs
+D:\c#\progg\progg\obj\Debug\HomeUserControl.baml
