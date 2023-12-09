@@ -16,3 +16,7 @@ D:\c#\progg\progg\obj\Debug\progg.pdb
 D:\c#\progg\progg\obj\Debug\Styles.baml
 D:\c#\progg\progg\obj\Debug\HomeUserControl.g.cs
 D:\c#\progg\progg\obj\Debug\HomeUserControl.baml
+D:\c#\progg\progg\obj\Debug\levels.g.cs
+D:\c#\progg\progg\obj\Debug\levels.baml
+D:\c#\progg\progg\obj\Debug\lvl1.g.cs
+D:\c#\progg\progg\obj\Debug\lvl1.baml

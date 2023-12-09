@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("greybar.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("previmg.png")]
 
 

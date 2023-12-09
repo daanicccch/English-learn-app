@@ -27,6 +27,13 @@ namespace progg
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new HomeUserControl());
+
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new levels());
 
         }
     }

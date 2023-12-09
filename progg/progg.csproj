@@ -61,6 +61,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="levels.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lvl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -71,6 +79,12 @@
     </Compile>
     <Compile Include="HomeUserControl.xaml.cs">
       <DependentUpon>HomeUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="levels.xaml.cs">
+      <DependentUpon>levels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lvl1.xaml.cs">
+      <DependentUpon>lvl1.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -118,6 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="greyBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="nextImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="prevImg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
