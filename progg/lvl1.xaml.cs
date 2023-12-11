@@ -104,22 +104,29 @@ namespace progg
         }
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            Button randomButton = answerButtons[random.Next(answerButtons.Length)];
-            int tempColumn = Grid.GetColumn(trueButton);
-            int tempRow = Grid.GetRow(trueButton);
+            if (currentStage < wordArray.Length/5+1)
+            {
+                Button randomButton = answerButtons[random.Next(answerButtons.Length)];
+                int tempColumn = Grid.GetColumn(trueButton);
+                int tempRow = Grid.GetRow(trueButton);
 
-            Grid.SetColumn(trueButton, Grid.GetColumn(randomButton));
-            Grid.SetRow(trueButton, Grid.GetRow(randomButton));
+                Grid.SetColumn(trueButton, Grid.GetColumn(randomButton));
+                Grid.SetRow(trueButton, Grid.GetRow(randomButton));
 
-            Thickness tempp = (trueButton.Margin);
-            trueButton.Margin = randomButton.Margin;
-            randomButton.Margin = tempp;
+                Thickness tempp = (trueButton.Margin);
+                trueButton.Margin = randomButton.Margin;
+                randomButton.Margin = tempp;
 
-            Grid.SetColumn(randomButton, tempColumn);
-            Grid.SetRow(randomButton, tempRow);
-            currentStage++;
-            UpdateUIForCurrentStage();
-            nextButton.Visibility = Visibility.Collapsed;
+                Grid.SetColumn(randomButton, tempColumn);
+                Grid.SetRow(randomButton, tempRow);
+                currentStage++;
+                UpdateUIForCurrentStage();
+                nextButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                NavigationService.Navigate(new levels());
+            }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

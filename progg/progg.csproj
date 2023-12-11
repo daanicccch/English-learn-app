@@ -69,6 +69,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="lvl2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="lvl3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +93,12 @@
     </Compile>
     <Compile Include="lvl1.xaml.cs">
       <DependentUpon>lvl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lvl2.xaml.cs">
+      <DependentUpon>lvl2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lvl3.xaml.cs">
+      <DependentUpon>lvl3.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -138,6 +152,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="prevImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="apple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="elephant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

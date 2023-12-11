@@ -20,3 +20,7 @@ D:\c#\progg\progg\obj\Debug\levels.g.cs
 D:\c#\progg\progg\obj\Debug\levels.baml
 D:\c#\progg\progg\obj\Debug\lvl1.g.cs
 D:\c#\progg\progg\obj\Debug\lvl1.baml
+D:\c#\progg\progg\obj\Debug\lvl2.g.cs
+D:\c#\progg\progg\obj\Debug\lvl2.baml
+D:\c#\progg\progg\obj\Debug\lvl3.g.cs
+D:\c#\progg\progg\obj\Debug\lvl3.baml
