@@ -29,6 +29,7 @@ namespace progg
         }
         private string[,] sentArray = new string[,]
         {
+            {"Birds chirp in the morning","Птицы щебечут по утрам" },
             { "Дети играли в парке весь день", "The children played in the park all day" },
             {"Мы готовили вкусный обед вместе с друзьями", "We cooked a delicious lunch together with friends"},
             {"Он читал интересную книгу в тени дерева", "He was reading an interesting book in the shade of the tree"},
@@ -84,13 +85,11 @@ namespace progg
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
                 if (currentStage <  sentArray.Length/2-1)
                 {
                     double porog = 0.9;
                     textBox2.IsReadOnly = true;
-                    textBox1.Text = sentArray[currentStage, 1];
+                    textBox1.Text = sentArray[currentStage, 0];
                     if (CalculateSimilarity(textBox2.Text, sentArray[currentStage, 1]) >= porog)
                     {
                         nextButton.Content = "Next";
@@ -125,16 +124,10 @@ namespace progg
                 {
                     NavigationService.Navigate(new levels());
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            try { 
             if (currentStage <  sentArray.Length-1)
             {
                 textBox2.Text = string.Empty;
@@ -149,11 +142,6 @@ namespace progg
             else
             {
                 NavigationService.Navigate(new levels());
-            }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
             }
         }
     }

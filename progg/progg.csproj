@@ -77,6 +77,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="lvl4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +103,9 @@
     </Compile>
     <Compile Include="lvl3.xaml.cs">
       <DependentUpon>lvl3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="lvl4.xaml.cs">
+      <DependentUpon>lvl4.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -164,6 +171,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="cat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="speaker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ul.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

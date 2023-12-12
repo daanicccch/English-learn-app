@@ -75,6 +75,10 @@ namespace progg
             {
                 NavigationService.Navigate(new lvl3());
             }
+            if (txt1.Text == "Level 4")
+            {
+                NavigationService.Navigate(new lvl4());
+            }
         }
     }
 }

@@ -1,0 +1,143 @@
+﻿<Page x:Class="progg.lvl4"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:progg"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="lvl4">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid x:Name="MainRoot1" Background="#212121">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="57.234" />
+            <RowDefinition Height="53.376" />
+            <RowDefinition Height="187*" />
+            <RowDefinition Height="95*" />
+            <RowDefinition Height="57*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="136.655" />
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="100*" />
+
+        </Grid.ColumnDefinitions>
+
+        <Frame x:Name="mainFrame" Grid.ColumnSpan="3" Margin="0,57,0,22" Grid.RowSpan="2"/>
+
+        <TextBlock Text="M E N U"
+                   Foreground="#525965"
+                   FontFamily="Fonts/#Orbitron Medium"
+                   FontSize="20"
+                   VerticalAlignment="Bottom"
+                   Margin="0,0,15,10" Height="40" Width="100" HorizontalAlignment="Right" />
+
+        <Border Background="#D61734"
+                Height="40"
+                CornerRadius="3,0,0,3"
+                Width="8"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Margin="129,0,0,0" 
+                Panel.ZIndex="1" Grid.ColumnSpan="2"/>
+
+        <StackPanel Background="#2E333A"
+                    Width="144"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Left"
+                    Grid.Row="0"
+                    Grid.RowSpan="5"
+                    Panel.ZIndex="0" Margin="-2,0,0,0" Grid.ColumnSpan="2">
+
+
+            <!--// Channel Name //-->
+
+            <Grid Height="50"
+                  VerticalAlignment="Top"
+                  Margin="0,30,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="#D61734"
+                        Height="25"
+                        CornerRadius="3,0,0,3"
+                        Width="25"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left" Grid.Column="1" Margin="178,0,0,0"
+                        Panel.ZIndex="0"/>
+
+                <TextBlock Text="M E N U"
+                           Foreground="#FFFFFF"
+                           FontFamily="Fugaz One"
+                           FontSize="25"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left" Grid.Column="1" Margin="5,-17,0,0" />
+
+            </Grid>
+            <Menu Height="330"
+                  Background="Transparent"
+                  Margin="0,40,0,0">
+
+                <Menu.ItemsPanel >
+
+                    <ItemsPanelTemplate>
+
+                        <VirtualizingStackPanel Orientation="Vertical" />
+
+                    </ItemsPanelTemplate>
+
+                </Menu.ItemsPanel>
+
+                <!--// Main Menu - Home //-->
+
+                <MenuItem Header="Home" Template="{StaticResource Menu_SubMenu_Template}" Click="MenuItem_Click">
+                    <MenuItem.Icon>
+
+                        <Image Source="/img_home.png"
+                                   Stretch="None" />
+
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="Levels" Template="{StaticResource Menu_SubMenu_Template}" Click="MenuItem_Click_1">
+                    <MenuItem.Icon>
+
+                        <Image Source="/img_folder.png"
+               Stretch="None" />
+
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="About" Template="{StaticResource Menu_SubMenu_Template}">
+                    <MenuItem.Icon>
+
+                        <Image Source="/img_about.png"
+               Stretch="None" />
+
+                    </MenuItem.Icon>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontSize="26" TextAlignment="Center" VerticalAlignment="Bottom" FontFamily="Russo One" Foreground="#BB86FC" Margin="0,0,0,10" Height="32">Type what you hear</TextBlock>
+        <Button Grid.Row="2" Grid.Column="1" Background="Transparent" Style="{StaticResource SwitchButton}"  Margin="10,10,10,10" Click="Button_Click">
+            <Image Margin="15" Source="/speaker.png"></Image>
+        </Button>
+        <Button Grid.Row="3" Grid.Column="1" Background="Transparent" Style="{StaticResource SwitchButton}"  Margin="10,10,10,10" Click="Button_Click_1">
+            <Image Margin="0" Source="/ul.png"></Image>
+        </Button>
+        <TextBox x:Name="textBox2" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource TextBox}" Margin="10,10,10,10" AcceptsReturn="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" FontFamily="Russo One"></TextBox>
+        <Button x:Name="checkButton" Grid.Column="2" Grid.Row="4" Style="{StaticResource PressedButtonStyle}" Width="140" HorizontalAlignment="Right" Margin="0,0,5,5" FontSize="20" FontFamily="Russo One" Click="checkButton_Click">Проверить</Button>
+        <Button x:Name="nextButton" Grid.Column="2" Grid.Row="4" Style="{StaticResource PressedButtonStyle}" Width="140" HorizontalAlignment="Right" Margin="0,0,5,5" FontSize="20" FontFamily="Russo One" Click="nextButton_Click" Visibility="Collapsed">Next</Button>
+        <Button x:Name="helpButton" Grid.Column="2" Grid.Row="4" Style="{StaticResource PressedButtonStyle}" Width="140" HorizontalAlignment="Center" Margin="0,0,5,5" FontSize="20" FontFamily="Russo One" Click="helpButton_Click" Visibility="Collapsed">Help</Button>
+    </Grid>
+</Page>
