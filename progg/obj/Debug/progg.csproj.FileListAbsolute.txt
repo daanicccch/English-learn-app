@@ -26,3 +26,5 @@ D:\c#\progg\progg\obj\Debug\lvl3.g.cs
 D:\c#\progg\progg\obj\Debug\lvl3.baml
 D:\c#\progg\progg\obj\Debug\lvl4.g.cs
 D:\c#\progg\progg\obj\Debug\lvl4.baml
+D:\c#\progg\progg\obj\Debug\lvl5.g.cs
+D:\c#\progg\progg\obj\Debug\lvl5.baml

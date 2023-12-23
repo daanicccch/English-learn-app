@@ -20,6 +20,7 @@ namespace progg
     /// </summary>
     public partial class lvl1 : Page
     {
+        int lvlComplete = 0;
         private Button[] answerButtons;
         private Random random = new Random();
         System.Windows.Controls.Image[] imageArray;
@@ -125,6 +126,7 @@ namespace progg
             }
             else
             {
+                
                 NavigationService.Navigate(new levels());
             }
         }

@@ -50,7 +50,7 @@ namespace progg
 
         private void GoNext(object sender, RoutedEventArgs e)
         {
-            if (i<10)
+            if (i<5)
             {
                 i++;
                 txt1.Text = "Level " + i.ToString();
@@ -78,6 +78,10 @@ namespace progg
             if (txt1.Text == "Level 4")
             {
                 NavigationService.Navigate(new lvl4());
+            }
+            if (txt1.Text == "Level 5")
+            {
+                NavigationService.Navigate(new lvl5());
             }
         }
     }

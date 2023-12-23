@@ -29,8 +29,8 @@ namespace progg
         }
         private string[,] sentArray = new string[,]
         {
+            {"Дети играли в парке весь день", "The children played in the park all day" },
             {"Birds chirp in the morning","Птицы щебечут по утрам" },
-            { "Дети играли в парке весь день", "The children played in the park all day" },
             {"Мы готовили вкусный обед вместе с друзьями", "We cooked a delicious lunch together with friends"},
             {"Он читал интересную книгу в тени дерева", "He was reading an interesting book in the shade of the tree"},
             {"Моя сестра училась играть на гитаре много лет", "My sister has been learning to play the guitar for many years"},
