@@ -144,5 +144,10 @@ namespace progg
                 NavigationService.Navigate(new levels());
             }
         }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AboutPage());
+        }
     }
 }

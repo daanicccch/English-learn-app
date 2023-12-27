@@ -1,4 +1,5 @@
-﻿using System;
+﻿using progg.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,27 +48,34 @@ namespace progg
         };
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
-            button1.IsEnabled = false;
-            button2.IsEnabled = false;
-            button4.IsEnabled = false;
-            trueButton.IsEnabled = false;
-            if (button.Name == "trueButton")
+            try
             {
-                button.Foreground = Brushes.Green;
-                button.Background = new SolidColorBrush(Color.FromRgb(150, 181, 151));
-                button.BorderBrush = new SolidColorBrush(Color.FromRgb(47, 107, 10));
-                nextButton.Visibility = Visibility.Visible;
-                imageArray[currentStage].Source = BitmapFrame.Create(new Uri("D:\\c#\\progg\\progg\\resourse\\greenBar.png"));
-            }
-            else
-            {
-                button.Foreground = Brushes.Red;
-                button.Background = new SolidColorBrush(Color.FromRgb(173, 111, 126));
-                button.BorderBrush = new SolidColorBrush(Color.FromRgb(79, 13, 28));
-                imageArray[currentStage].Source = BitmapFrame.Create(new Uri("D:\\c#\\progg\\progg\\resourse\\redBar.png"));
-                nextButton.Visibility = Visibility.Visible;
+                Button button = (Button)sender;
+                button1.IsEnabled = false;
+                button2.IsEnabled = false;
+                button4.IsEnabled = false;
+                trueButton.IsEnabled = false;
+                if (button.Name == "trueButton")
+                {
+                    button.Foreground = Brushes.Green;
+                    button.Background = new SolidColorBrush(Color.FromRgb(150, 181, 151));
+                    button.BorderBrush = new SolidColorBrush(Color.FromRgb(47, 107, 10));
+                    nextButton.Visibility = Visibility.Visible;
+                    imageArray[currentStage].Source = BitmapFrame.Create(new Uri("./resourse/greenBar.png", UriKind.Relative));
+                //imageArray[currentStage].Source = new BitmapImage(new Uri("progg/resourse/greenBar.png", UriKind.Relative));
+                }
+                else
+                {
+                    button.Foreground = Brushes.Red;
+                    button.Background = new SolidColorBrush(Color.FromRgb(173, 111, 126));
+                    button.BorderBrush = new SolidColorBrush(Color.FromRgb(79, 13, 28));
+                    imageArray[currentStage].Source = BitmapFrame.Create(new Uri("./resourse/redBar.png", UriKind.Relative));
+                    nextButton.Visibility = Visibility.Visible;
 
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -140,5 +148,9 @@ namespace progg
             NavigationService.Navigate(new levels());
         }
 
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AboutPage());
+        }
     }
 }

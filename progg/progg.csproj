@@ -57,6 +57,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HomeUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -89,6 +93,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -184,6 +191,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="homeImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="rm218-bb-07.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="800x800_0xac120003_212219991559932983.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="изображение_2023-12-27_021748053.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="sound zone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

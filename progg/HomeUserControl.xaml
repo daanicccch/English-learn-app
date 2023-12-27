@@ -17,23 +17,34 @@
 
     <Grid x:Name="MainRoot1" Background="#212121">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70*" />
-            <RowDefinition Height="65*" />
-            <RowDefinition Height="171*" />
-            <RowDefinition Height="177*" />
-            <RowDefinition Height="65*" />
+            <RowDefinition Height="58.769" />
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="*"/>
+
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="144*" />
-            <ColumnDefinition Width="193*" />
-            <ColumnDefinition Width="170*" />
-
-            <ColumnDefinition Width="167*" />
-            <ColumnDefinition Width="169*" />
+            <ColumnDefinition Width="136.655" />
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <Grid Grid.Column="1" Background="#fffdff"></Grid>
+        <Grid Grid.Column="1" Grid.Row="1" Background="#f7f0f8">
+            <TextBlock FontFamily="Meiryo UI" FontSize="30" Margin="70,20,0,0" Foreground="#312934">English To</TextBlock>
+            <TextBlock Margin="70,60,0,0" Width="200" HorizontalAlignment="Left" TextWrapping="Wrap" Foreground="#7f7880">Upgrade your knowledge and communication skills effortlessly!</TextBlock>
+            <Button Width="180" Height="35" HorizontalAlignment="Left" Margin="70,90,0,0" Style="{StaticResource UpgradeButton}" Foreground="#d4ffc1" Click="Button_Click">Upgrade your knowledge</Button>
+            <Image Source="/homeImage.png" HorizontalAlignment="Right" Margin="0,0,20,0"/> 
+        </Grid>
+        <Image Grid.Column="1" Grid.Row="2" Source="/rm218-bb-07.jpg" Stretch="UniformToFill" />
+        <Canvas Grid.Column="1" Grid.Row="2">
+            <Grid Width="120" Height="120" Margin="20">
+                <TextBlock Foreground="#e5eeff" FontSize="10" Margin="0,20,0,0" FontFamily="Meiryo UI" HorizontalAlignment="Center">SoundABC Zone</TextBlock>
+                <Button Opacity="0.05"  Background="#FFDDDDDD" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+                <Image Opacity="0.8" Margin="0,30,0,0" Source="/sound zone.png"/>
+            </Grid>
+        </Canvas>
         <Frame x:Name="mainFrame" Grid.Row="1" Grid.ColumnSpan="5"/>
-
+        
         <TextBlock Text="M E N U"
                    Foreground="#525965"
                    FontFamily="Fonts/#Orbitron Medium"
@@ -119,7 +130,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="About" Template="{StaticResource Menu_SubMenu_Template}">
+                <MenuItem Header="About" Template="{StaticResource Menu_SubMenu_Template}" Click="MenuItem_Click_2">
                     <MenuItem.Icon>
 
                         <Image Source="/img_about.png"

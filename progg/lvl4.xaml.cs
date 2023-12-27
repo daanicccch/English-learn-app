@@ -82,13 +82,13 @@ namespace progg
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            mediaPlayer.Open(new Uri("D:\\c#\\progg\\progg\\resourse\\lvl3\\" + currentStage + ".wav", UriKind.Relative));
+            mediaPlayer.Open(new Uri(".\\resourse\\lvl3\\" + currentStage + ".wav", UriKind.Relative));
             mediaPlayer.Play();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            mediaPlayer.Open(new Uri("D:\\c#\\progg\\progg\\resourse\\lvl3\\" + currentStage + "slow.wav", UriKind.Relative));
+            mediaPlayer.Open(new Uri(".\\resourse\\lvl3\\" + currentStage + "slow.wav", UriKind.Relative));
             mediaPlayer.Play();
         }
 
@@ -160,6 +160,11 @@ namespace progg
         private void helpButton_Click(object sender, RoutedEventArgs e)
         {
             textBox2.Text = sentArray[currentStage, 1];
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AboutPage());
         }
     }
 }
