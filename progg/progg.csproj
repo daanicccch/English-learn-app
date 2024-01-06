@@ -65,6 +65,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="level1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="levels.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,8 +104,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AppVariables.cs" />
     <Compile Include="HomeUserControl.xaml.cs">
       <DependentUpon>HomeUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="level1.xaml.cs">
+      <DependentUpon>level1.xaml</DependentUpon>
     </Compile>
     <Compile Include="levels.xaml.cs">
       <DependentUpon>levels.xaml</DependentUpon>
@@ -206,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="sound zone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="menu-Back.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

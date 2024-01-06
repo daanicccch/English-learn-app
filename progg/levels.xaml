@@ -18,12 +18,13 @@
 
     <Grid x:Name="MainRoot1" Background="#212121">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70*" />
+
+            <RowDefinition Height="450" />
 
 
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="141.655" />
+            <ColumnDefinition Width="136.655" />
             <ColumnDefinition Width="80" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="80" />
@@ -56,7 +57,7 @@
               Width="8"
               VerticalAlignment="Bottom"
               HorizontalAlignment="Right"
-              Margin="0,0,0,410" 
+              Margin="0,0,0,401" 
               Panel.ZIndex="1"/>
 
         <StackPanel Background="#2E333A"

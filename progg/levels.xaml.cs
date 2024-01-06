@@ -24,6 +24,7 @@ namespace progg
         public levels()
         {
             InitializeComponent();
+            
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -65,7 +66,11 @@ namespace progg
         {
             if (txt1.Text == "Level 1")
             {
-                NavigationService.Navigate(new lvl1());
+                AppVariables.GlobalIndex =0;
+                AppVariables.GlobalValue =0;
+                for (int i = 0; i < AppVariables.IsRight.Length; i++)
+                { AppVariables.IsRight[i] = 3; }
+                NavigationService.Navigate(new level1());
             }
             if (txt1.Text == "Level 2")
             {

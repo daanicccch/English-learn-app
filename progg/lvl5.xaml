@@ -18,7 +18,8 @@
 
     <Grid x:Name="MainRoot1" Background="#212121">
         <Grid.RowDefinitions>
-            <RowDefinition Height="57.482" />
+            <RowDefinition Height="58.769" />
+            <RowDefinition Height="53.376" />
             <RowDefinition Height="1.5*" />
             <RowDefinition Height="4*" />
             <RowDefinition Height="5*" />
@@ -26,22 +27,57 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="136.655" />
+            
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <Frame x:Name="mainFrame" Grid.Row="1" Grid.ColumnSpan="5"/>
+        <Grid x:Name="Bar" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Width="650">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Source="/greyBar.png" Name ="i1"  Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" />
+            <Image Source="/greyBar.png" Name ="i2"  Grid.Row="2" Grid.Column="1"/>
+            <Image Name ="i3" Source="/greyBar.png" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="78"/>
+            <Image Name ="i4" Source="/greyBar.png"  Grid.Row="2" Grid.Column="3"/>
+            <Image Name ="i5" Source="/greyBar.png"  Grid.Row="2" Grid.Column="4"/>
+
+            <!-- Изображения во второй колонке -->
+            <Image Name ="i6" Source="/greyBar.png" Grid.Row="2" Grid.Column="5"/>
+            <Image Name ="i7" Source="/greyBar.png" Grid.Row="2" Grid.Column="6"/>
+            <Image Name ="i8" Source="/greyBar.png" Grid.Row="2" Grid.Column="7"/>
+            <Image Name ="i9" Source="/greyBar.png" Grid.Row="2" Grid.Column="8" Panel.ZIndex="1" RenderTransformOrigin="0.5,0.5" />
+            <Image Name ="i10" Source="/greyBar.png" Grid.Column="8" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1" Margin="10,0,-10,0">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
         <TextBlock Grid.Column="1" FontSize="26" TextAlignment="Center" VerticalAlignment="Bottom" FontFamily="Russo One" Foreground="#BB86FC" Margin="0,5">Translate This sentence</TextBlock>
-        <Viewbox Grid.Column="1" Grid.Row="1"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,5">
-            <TextBlock x:Name="txt1"  FontSize="26" FontFamily="Russo One" Foreground="#ABABAB" >Я ем хлеб</TextBlock>
+        <Viewbox Grid.Column="1" Grid.Row="2"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="30,5">
+            <TextBlock x:Name="txt1"  FontSize="26" FontFamily="Russo One" Foreground="#ABABAB" ></TextBlock>
          </Viewbox>
-        <Grid x:Name="Lines" Grid.Column="1" Grid.Row="2">
+        <Grid x:Name="Lines" Grid.Column="1" Grid.Row="3">
             <Line X1="43" Y1="50" X2="620" Y2="50" Stroke="#ABABAB" StrokeThickness="2"/>
             <Line X1="43" Y1="100" X2="620" Y2="100" Stroke="#ABABAB" StrokeThickness="2"/>
         </Grid>
-        <Canvas x:Name="buttonsCanvas" Grid.Row="2" Grid.Column="1" Grid.RowSpan ="2">
+        <Canvas x:Name="buttonsCanvas" Grid.Row="3" Grid.Column="1" Grid.RowSpan ="2">
         </Canvas>
-        <Button x:Name="nextButton" Grid.Column="1" Grid.Row="3" Width="130" Height="50" Style="{StaticResource PressedButtonStyle}" FontSize="20" FontFamily="Russo One" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Click="nextButton_Click" Visibility="Collapsed">Next</Button>
-        <Button x:Name="checkButton" Grid.Column="1" Grid.Row="3" Width="130" Height="50" Style="{StaticResource PressedButtonStyle}" FontSize="20" FontFamily="Russo One" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Click="Button_Click">Проверить</Button>
+        <Button x:Name="nextButton" Grid.Column="1" Grid.Row="4" Width="130" Height="50" Style="{StaticResource PressedButtonStyle}" FontSize="20" FontFamily="Russo One" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Click="nextButton_Click" Visibility="Collapsed">Next</Button>
+        <Button x:Name="checkButton" Grid.Column="1" Grid.Row="4" Width="130" Height="50" Style="{StaticResource PressedButtonStyle}" FontSize="20" FontFamily="Russo One" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Click="Button_Click">Проверить</Button>
         <TextBlock Text="M E N U"
                    Foreground="#525965"
                    FontFamily="Fonts/#Orbitron Medium"

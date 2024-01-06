@@ -27,12 +27,36 @@ namespace progg
     /// <summary>
     /// Логика взаимодействия для lvl5.xaml
     /// </summary>
+    /// 
     public partial class lvl5 : Page
     {
+        System.Windows.Controls.Image[] imageArray;
         public lvl5()
         {
+            
             InitializeComponent();
+            imageArray = new System.Windows.Controls.Image[] { i1, i2, i3, i4, i5, i6, i7, i8, i9, i10 };
+            InitializeBar();
+            txt1.Text = wordArray[AppVariables.GlobalValue, 10];
             InitializaButtons();
+        }
+        private void InitializeBar()
+        {
+            for (int i = 0; i < AppVariables.IsRight.Length; i++)
+            {
+                if (AppVariables.IsRight[i] == 0)
+                {
+                    imageArray[i].Source = BitmapFrame.Create(new Uri("./resourse/greenBar.png", UriKind.Relative));
+                }
+                else if (AppVariables.IsRight[i] == 1)
+                {
+                    imageArray[i].Source = BitmapFrame.Create(new Uri("./resourse/redBar.png", UriKind.Relative));
+                }
+                else
+                {
+                    imageArray[i].Source = BitmapFrame.Create(new Uri("./resourse/greyBar.png", UriKind.Relative));
+                }
+            }
         }
         private string[,] wordArray = new string[,]
         {
@@ -52,7 +76,7 @@ namespace progg
         Button[] buttons = new Button[9];
         TextBlock[] textBlock = new TextBlock[9];
         List<string> result = new List<string>();
-        int currentStage = 0; 
+        private int currentStage = AppVariables.GlobalValue;
         private void InitializaButtons()
         {
                 
@@ -201,38 +225,6 @@ namespace progg
 
         }
 
-        private void goBack()
-        {
-            foreach (Button otherButton in buttons)
-            {
-
-
-                if (otherButton.Content is TextBlock otherTextBlock)
-                {
-                    result.Remove(otherTextBlock.Text);
-                }
-                if (!originalLeftOffsets.ContainsKey(otherButton))
-                {
-                    originalLeftOffsets.Add(otherButton, (double)otherButton.GetValue(Canvas.LeftProperty));
-                }
-                DoubleAnimation animationXo = new DoubleAnimation();
-                animationXo.From = Canvas.GetLeft(otherButton);
-                animationXo.To = originalLeftOffsets[otherButton];
-                animationXo.Duration = TimeSpan.FromSeconds(0.2);
-
-                DoubleAnimation animationYo = new DoubleAnimation();
-                animationYo.From = Canvas.GetTop(otherButton);
-                animationYo.To = 0;
-                animationYo.Duration = TimeSpan.FromSeconds(0.2);
-
-
-                otherButton.BeginAnimation(Canvas.LeftProperty, animationXo);
-                otherButton.BeginAnimation(Canvas.TopProperty, animationYo);
-
-                buttonStates[otherButton] = true;
-                leftOffset = 0;
-            }
-        }
         private bool HasButtonsToTheLeft(Button currentButton)
         {
             double currentButtonLeft = Canvas.GetLeft(currentButton);
@@ -282,78 +274,79 @@ namespace progg
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            string res = "";
+            foreach (var item in result)
             {
-                string res = "";
-                foreach (var item in result)
-                {
-                    res += item + " ";
-                }
+                res += item + " ";
+            }
                
-                if (currentStage < wordArray.Length)
+            if (currentStage < wordArray.Length)
+            {
+                double porog = 0.9;
+                txt1.Text = wordArray[currentStage, 10];
+                if (CalculateSimilarity(res, wordArray[currentStage, 9]) >= porog)
                 {
-                    double porog = 0.9;
-                    txt1.Text = wordArray[currentStage, 10];
-                    if (CalculateSimilarity(res, wordArray[currentStage, 9]) >= porog)
+                    for (int i = 0; i<buttons.Length; i++)
                     {
-                        for (int i = 0; i<buttons.Length; i++)
+                        buttons[i].IsEnabled = false;
+                        if (Canvas.GetTop(buttons[i]) == -170)
                         {
-                            buttons[i].IsEnabled = false;
-                            if (Canvas.GetTop(buttons[i]) == -170)
-                            {
-                                buttons[i].Foreground = System.Windows.Media.Brushes.Green;
-                                buttons[i].Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(150, 181, 151));
-                                buttons[i].BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(47, 107, 10));
-                                
-                            }
-                        }
-                        nextButton.Content = "Next";
-                        checkButton.Visibility = Visibility.Collapsed;
-                        nextButton.Visibility = Visibility.Visible;
-                        currentStage++;
+                            buttons[i].Foreground = System.Windows.Media.Brushes.Green;
+                            buttons[i].Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(150, 181, 151));
+                            buttons[i].BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(47, 107, 10));
+                            imageArray[AppVariables.GlobalIndex - 1].Source = BitmapFrame.Create(new Uri("./resourse/greenBar.png", UriKind.Relative));
+                            AppVariables.IsRight[AppVariables.GlobalIndex - 1] = 0;
                     }
-                    else if (CalculateSimilarity(res, wordArray[currentStage, 6]) >= 0.8)
-                    {
-                        nextButton.Content = "Next";
-                        for (int i = 0; i<buttons.Length; i++)
-                        {
-                            buttons[i].IsEnabled = false;
-                            if (Canvas.GetTop(buttons[i]) == -170)
-                            {
-                                buttons[i].Foreground = System.Windows.Media.Brushes.Yellow;
-                                buttons[i].Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(130, 133, 102));
-                                buttons[i].BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(90, 97, 19));
-
-                            }
-                        }
-                        checkButton.Visibility = Visibility.Collapsed;
-                        nextButton.Visibility = Visibility.Visible;
-                        currentStage++;
                     }
-                    else
-                    {
+                    nextButton.Content = "Next";
+                    checkButton.Visibility = Visibility.Collapsed;
+                    nextButton.Visibility = Visibility.Visible;
                         
-                        for (int i = 0; i<buttons.Length; i++)
+                }
+                else if (CalculateSimilarity(res, wordArray[currentStage, 6]) >= 0.8)
+                {
+                    nextButton.Content = "Next";
+                    for (int i = 0; i<buttons.Length; i++)
+                    {
+                        buttons[i].IsEnabled = false;
+                        if (Canvas.GetTop(buttons[i]) == -170)
                         {
-                            buttons[i].IsEnabled = false;
-                            if (Canvas.GetTop(buttons[i]) == -170)
-                            {
-                                buttons[i].Foreground = System.Windows.Media.Brushes.Red;
-                                buttons[i].Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(173, 111, 126));
-                                buttons[i].BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(79, 13, 28));
-                            }
-                        }
-                        checkButton.Visibility = Visibility.Collapsed;
-                        nextButton.Visibility = Visibility.Visible;
-                        nextButton.Content = "Заново";
-
+                            buttons[i].Foreground = System.Windows.Media.Brushes.Yellow;
+                            buttons[i].Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(130, 133, 102));
+                            buttons[i].BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(90, 97, 19));
+                            imageArray[AppVariables.GlobalIndex - 1].Source = BitmapFrame.Create(new Uri("./resourse/greenBar.png", UriKind.Relative));
+                            AppVariables.IsRight[AppVariables.GlobalIndex - 1] = 0;
                     }
+                    }
+                    checkButton.Visibility = Visibility.Collapsed;
+                    nextButton.Visibility = Visibility.Visible;
+                        
                 }
                 else
                 {
-                    NavigationService.Navigate(new levels());
+                        
+                    for (int i = 0; i<buttons.Length; i++)
+                    {
+                        buttons[i].IsEnabled = false;
+                        if (Canvas.GetTop(buttons[i]) == -170)
+                        {
+                            buttons[i].Foreground = System.Windows.Media.Brushes.Red;
+                            buttons[i].Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(173, 111, 126));
+                            buttons[i].BorderBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(79, 13, 28));
+                            
+                        }
+                        imageArray[AppVariables.GlobalIndex - 1].Source = BitmapFrame.Create(new Uri("./resourse/redBar.png", UriKind.Relative));
+                        AppVariables.IsRight[AppVariables.GlobalIndex - 1] = 1;
+                    }
+                    checkButton.Visibility = Visibility.Collapsed;
+                    nextButton.Visibility = Visibility.Visible;
+
                 }
-            }catch(Exception ex) { MessageBox.Show(ex.ToString()); }
+            }
+            else
+            {
+                NavigationService.Navigate(new levels());
+            }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -370,27 +363,11 @@ namespace progg
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            if (nextButton.Content == "Заново")
-                goBack(); 
             if (currentStage <  wordArray.Length)
             {
                 txt1.Text = wordArray[currentStage, 10];
-      
-                    goBack();
-                foreach (Button button in buttons)
-                {
-                    if (button.Parent != null)
-                    {
-                        (button.Parent as Panel)?.Children.Remove(button);
-                    }
-                    button.Click -= buttonWord_Click;
-                    button.Content = null;
-                }
-                Array.Clear(buttons, 0, buttons.Length);
+                NavigationService.Navigate(new level1());
 
-                InitializaButtons();
-                checkButton.Visibility = Visibility.Visible;
-                nextButton.Visibility = Visibility.Collapsed;
             }
             else
             {

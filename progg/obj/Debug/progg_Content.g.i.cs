@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sound%20zone.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("menu-back.jpg")]
 
 

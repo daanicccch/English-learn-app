@@ -22,15 +22,37 @@ namespace progg
     /// </summary>
     public partial class lvl3 : Page
     {
+        private int currentStage = AppVariables.GlobalValue;
+        System.Windows.Controls.Image[] imageArray;
         public lvl3()
         {
             InitializeComponent();
+            imageArray = new System.Windows.Controls.Image[] { i1, i2, i3, i4, i5, i6, i7, i8, i9, i10 };
+            InitializeBar();
             textBox1.IsReadOnly = true;
+            textBox1.Text = sentArray[currentStage,0];
+        }
+        private void InitializeBar()
+        {
+            for (int i = 0; i < AppVariables.IsRight.Length; i++)
+            {
+                if (AppVariables.IsRight[i] == 0)
+                {
+                    imageArray[i].Source = BitmapFrame.Create(new Uri("./resourse/greenBar.png", UriKind.Relative));
+                }
+                else if (AppVariables.IsRight[i] == 1)
+                {
+                    imageArray[i].Source = BitmapFrame.Create(new Uri("./resourse/redBar.png", UriKind.Relative));
+                }
+                else
+                {
+                    imageArray[i].Source = BitmapFrame.Create(new Uri("./resourse/greyBar.png", UriKind.Relative));
+                }
+            }
         }
         private string[,] sentArray = new string[,]
         {
             {"Дети играли в парке весь день", "The children played in the park all day" },
-            {"Birds chirp in the morning","Птицы щебечут по утрам" },
             {"Мы готовили вкусный обед вместе с друзьями", "We cooked a delicious lunch together with friends"},
             {"Он читал интересную книгу в тени дерева", "He was reading an interesting book in the shade of the tree"},
             {"Моя сестра училась играть на гитаре много лет", "My sister has been learning to play the guitar for many years"},
@@ -42,7 +64,7 @@ namespace progg
             {"Закат отразился в водах океана", "The sunset reflected in the waters of the ocean"}
          };
 
-        private int currentStage = 0;
+       
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new HomeUserControl());
@@ -85,45 +107,49 @@ namespace progg
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                if (currentStage <  sentArray.Length/2-1)
+            if (currentStage <  sentArray.Length/2-1)
+            {
+                double porog = 0.9;
+                textBox2.IsReadOnly = true;
+                textBox1.Text = sentArray[currentStage, 0];
+                if (CalculateSimilarity(textBox2.Text, sentArray[currentStage, 1]) >= porog)
                 {
-                    double porog = 0.9;
-                    textBox2.IsReadOnly = true;
-                    textBox1.Text = sentArray[currentStage, 0];
-                    if (CalculateSimilarity(textBox2.Text, sentArray[currentStage, 1]) >= porog)
-                    {
-                        nextButton.Content = "Next";
-                        textBox2.Foreground = Brushes.Green;
-                        textBox2.Background = new SolidColorBrush(Color.FromRgb(150, 181, 151));
-                        textBox2.BorderBrush = new SolidColorBrush(Color.FromRgb(47, 107, 10));
-                        checkButton.Visibility = Visibility.Collapsed;
-                        nextButton.Visibility = Visibility.Visible;
-                        currentStage++;
-                    }
-                    else if (CalculateSimilarity(textBox2.Text, sentArray[currentStage, 1]) >= 0.8)
-                    {
-                        nextButton.Content = "Next";
-                        textBox2.Foreground = Brushes.Yellow;
-                        textBox2.Background = new SolidColorBrush(Color.FromRgb(130, 133, 102));
-                        textBox2.BorderBrush = new SolidColorBrush(Color.FromRgb(90, 97, 19));
-                        checkButton.Visibility = Visibility.Collapsed;
-                        nextButton.Visibility = Visibility.Visible;
-                        currentStage++;
-                    }
-                    else
-                    {
-                        textBox2.Foreground = Brushes.Red;
-                        textBox2.Background = new SolidColorBrush(Color.FromRgb(173, 111, 126));
-                        textBox2.BorderBrush = new SolidColorBrush(Color.FromRgb(79, 13, 28));
-                        checkButton.Visibility = Visibility.Collapsed;
-                        nextButton.Visibility = Visibility.Visible;
-                        nextButton.Content = "Заново";
-                    }
-                }
+                    nextButton.Content = "Next";
+                    textBox2.Foreground = Brushes.Green;
+                    textBox2.Background = new SolidColorBrush(Color.FromRgb(150, 181, 151));
+                    textBox2.BorderBrush = new SolidColorBrush(Color.FromRgb(47, 107, 10));
+                    imageArray[AppVariables.GlobalIndex - 1].Source = BitmapFrame.Create(new Uri("./resourse/greenBar.png", UriKind.Relative));
+                    AppVariables.IsRight[AppVariables.GlobalIndex - 1] = 0;
+                    checkButton.Visibility = Visibility.Collapsed;
+                    nextButton.Visibility = Visibility.Visible;
+                        
+            }
+                else if (CalculateSimilarity(textBox2.Text, sentArray[currentStage, 1]) >= 0.8)
+                {
+                    nextButton.Content = "Next";
+                    textBox2.Foreground = Brushes.Yellow;
+                    textBox2.Background = new SolidColorBrush(Color.FromRgb(130, 133, 102));
+                    textBox2.BorderBrush = new SolidColorBrush(Color.FromRgb(90, 97, 19));
+                    imageArray[AppVariables.GlobalIndex - 1].Source = BitmapFrame.Create(new Uri("./resourse/greenBar.png", UriKind.Relative));
+                    AppVariables.IsRight[AppVariables.GlobalIndex - 1] = 0;
+                    checkButton.Visibility = Visibility.Collapsed;
+                    nextButton.Visibility = Visibility.Visible;;
+            }
                 else
                 {
-                    NavigationService.Navigate(new levels());
+                    textBox2.Foreground = Brushes.Red;
+                    textBox2.Background = new SolidColorBrush(Color.FromRgb(173, 111, 126));
+                    textBox2.BorderBrush = new SolidColorBrush(Color.FromRgb(79, 13, 28));
+                    imageArray[AppVariables.GlobalIndex - 1].Source = BitmapFrame.Create(new Uri("./resourse/redBar.png", UriKind.Relative));
+                    AppVariables.IsRight[AppVariables.GlobalIndex - 1] = 1;
+                    checkButton.Visibility = Visibility.Collapsed;
+                    nextButton.Visibility = Visibility.Visible;
                 }
+            }
+            else
+            {
+                NavigationService.Navigate(new levels());
+            }
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
@@ -138,6 +164,7 @@ namespace progg
                 textBox1.Text = sentArray[currentStage,0];
                 checkButton.Visibility = Visibility.Visible;
                 nextButton.Visibility = Visibility.Collapsed;
+                NavigationService.Navigate(new level1());
             }
             else
             {

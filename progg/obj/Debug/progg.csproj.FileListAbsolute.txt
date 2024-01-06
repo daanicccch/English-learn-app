@@ -92,3 +92,5 @@ D:\prog\English-learn-app\progg\obj\Debug\progg.exe
 D:\prog\English-learn-app\progg\obj\Debug\progg.pdb
 D:\prog\English-learn-app\progg\obj\Debug\AboutPage.g.cs
 D:\prog\English-learn-app\progg\obj\Debug\AboutPage.baml
+D:\prog\English-learn-app\progg\obj\Debug\level1.g.cs
+D:\prog\English-learn-app\progg\obj\Debug\level1.baml

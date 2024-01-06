@@ -6,7 +6,7 @@
                      TargetType="{x:Type MenuItem}">
 
         <Border x:Name="border"
-                Background="#2E333A"
+                
                 BorderBrush="#2E333A"
                 BorderThickness="0"
                 Height="50"
